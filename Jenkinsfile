@@ -5,20 +5,27 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/username/project.git'
+                git 'https://github.com/jatinR14/jenkins-demo.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'echo Testing Stage'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'cp -r * /var/www/html/'
+                bat 'echo Deploy Stage'
             }
         }
+
     }
 }
